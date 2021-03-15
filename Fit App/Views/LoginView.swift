@@ -24,62 +24,46 @@ struct LoginView: View {
                             .padding(.top,200)
                         
                         TextField("E-mail", text: $email)
-                            .foregroundColor(.white)
                             .underlineTextField()
                             .foregroundColor(.white)
                         
                         SecureField("Contraseña", text: $password)
-                            .foregroundColor(.white)
                             .underlineTextField()
                             .foregroundColor(.white)
                         
-                        Button(action: {
+                        RoundedButton(text: "INICIAR SESIÓN",
+                                      withGradient: LinearGradient(gradient:
+                                                                    Gradient(colors: [Color(K.Colors.startColor), Color(K.Colors.endColor)]),
+                                                                   startPoint: .leading,
+                                                                   endPoint: .trailing),
+                                      foregroundColor: .white) {
                             withAnimation {
                                 signInSuccess.toggle()
                             }
-                        }) {
-                            Text("INICIAR SESIÓN")
-                                .bold()
-                                .frame(width: 326, height: 60, alignment: .center)
-                                .background(LinearGradient(gradient: Gradient(colors: [Color(K.Colors.startColor), Color(K.Colors.endColor)]), startPoint: .leading, endPoint: .trailing))
-                                .foregroundColor(.white)
-                                .cornerRadius(30)
-                                .shadow(radius: 10)
                         }.padding()
                         
                         Button(action: {
-                            //TODO:
+                            //TODO: Register
                         }) {
                             Text("REGISTRARSE CON EMAIL")
                         }
                         
-                        Button(action: {
-                            //TODO
-                        }) {
-                            Text("INICIAR SESIÓN CON GOOGLE")
-                                .bold()
-                                .frame(width: 326, height: 60, alignment: .center)
-                                .background(Color.white)
-                                .foregroundColor(.red)
-                                .cornerRadius(30)
-                                .shadow(radius: 10)
-                        }.padding(.top,40)
-                        Button(action: {
-                            //TODO
-                        }) {
-                            Text("INICIAR SESIÓN CON FACEBOOK")
-                                .bold()
-                                .frame(width: 326, height: 60, alignment: .center)
-                                .background(Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(30)
-                                .shadow(radius: 10)
+                        RoundedButton(text: "INICIAR SESIÓN CON GOOGLE",
+                                      backgroundColor: .white, foregroundColor: .red) {
+                            //TODO: Sign In with Google
+                        }.padding(.top, 40)
+                        
+                        RoundedButton(text: "INICIAR SESIÓN CON FACEBOOK",
+                                      backgroundColor: .blue, foregroundColor: .white) {
+                            //TODO: Sign In with Facebook
                         }.padding()
+                        
                         Button(action: {
-                            //TODO:
+                            //TODO: Forgot password
                         }) {
                             Text("¿Has olvidado tu contraseña?")
                         }
+                         
                     }
                 }
             .frame(width: proxy.size.width, height: proxy.size.height, alignment: .top)
