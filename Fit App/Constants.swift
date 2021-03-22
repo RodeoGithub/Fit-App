@@ -19,9 +19,10 @@ struct K {
                                       green: 0.58,
                                       blue: 0.12,
                                       alpha: 1.00)
-        static let greyColor = UIColor(red: 0.15,
+        static let grayColor = UIColor(red: 0.15,
                                        green: 0.15,
                                        blue: 0.15,
                                        alpha: 1.00)
+        static let defaultGradient = LinearGradient(gradient: Gradient(colors: [Color(K.Colors.startColor), Color(K.Colors.endColor)]), startPoint: .leading, endPoint: .trailing)
     }
 }

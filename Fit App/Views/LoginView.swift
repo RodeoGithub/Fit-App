@@ -14,7 +14,7 @@ struct LoginView: View {
     var body: some View {
         GeometryReader { (proxy: GeometryProxy) in
                 ZStack(alignment: .top){
-                    Color(K.Colors.greyColor)
+                    Color(K.Colors.grayColor)
                     
                     Image("background")
                         .edgesIgnoringSafeArea(.top)
@@ -23,13 +23,17 @@ struct LoginView: View {
                         Image("full-logo")
                             .padding(.top,200)
                         
-                        TextField("E-mail", text: $email)
+                        TextField("", text: $email)
+                            .modifier(PlaceholderStyle(showPlaceholder: email.isEmpty, placeholder: "E-mail"))
                             .underlineTextField()
                             .foregroundColor(.white)
-                        
-                        SecureField("Contraseña", text: $password)
+                            .disableAutocorrection(true)
+                            
+                        SecureField("", text: $password)
+                            .modifier(PlaceholderStyle(showPlaceholder: password.isEmpty, placeholder: "Contraseña"))
                             .underlineTextField()
                             .foregroundColor(.white)
+                            .disableAutocorrection(true)
                         
                         RoundedButton(text: "INICIAR SESIÓN",
                                       withGradient: LinearGradient(gradient:
@@ -47,23 +51,23 @@ struct LoginView: View {
                         }) {
                             Text("REGISTRARSE CON EMAIL")
                         }
-                        
+                        Spacer()
                         RoundedButton(text: "INICIAR SESIÓN CON GOOGLE",
                                       backgroundColor: .white, foregroundColor: .red) {
                             //TODO: Sign In with Google
-                        }.padding(.top, 40)
+                        }.padding(.all)
                         
                         RoundedButton(text: "INICIAR SESIÓN CON FACEBOOK",
                                       backgroundColor: .blue, foregroundColor: .white) {
                             //TODO: Sign In with Facebook
-                        }.padding()
+                        }.padding(.horizontal)
+                        .padding(.bottom)
                         
                         Button(action: {
                             //TODO: Forgot password
                         }) {
                             Text("¿Has olvidado tu contraseña?")
-                        }
-                         
+                        }.padding(.bottom,30)
                     }
                 }
             .frame(width: proxy.size.width, height: proxy.size.height, alignment: .top)
@@ -75,7 +79,7 @@ extension View {
     func underlineTextField() -> some View {
         self
             .padding(.vertical, 10)
-            .foregroundColor(.white)
+            .foregroundColor(.gray)
             .overlay(Rectangle().frame(height:2).padding(.top, 35))
             .padding(.horizontal,30)
     }

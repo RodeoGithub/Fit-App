@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    let alreadyUsers = [User(email: "maidanarodrigo@mail.com", pass: "1234")]
     @State private var isLoaded = false
     @State var remaining = 0.75
     @State var timer = Timer.publish(every: 0.01, on: .current, in: .common).autoconnect()
     var body: some View {
+        /*
+        HowItWorksView()
+ */
+        
         ZStack{
             MainView()
             if !isLoaded {
@@ -29,6 +34,7 @@ struct ContentView: View {
                 }
             }
         }
+ 
     }
 }
 

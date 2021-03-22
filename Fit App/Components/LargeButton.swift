@@ -78,7 +78,6 @@ struct LargeButton: View {
             })
         }
     }
-    
 }
 
 struct LargeButton_Previews: PreviewProvider {

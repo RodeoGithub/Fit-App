@@ -12,11 +12,25 @@
 		E6090D3F25FA75E7000FB887 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6090D3E25FA75E7000FB887 /* Assets.xcassets */; };
 		E6090D4225FA75E7000FB887 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6090D4125FA75E7000FB887 /* Preview Assets.xcassets */; };
 		E6090D4C25FA9103000FB887 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6090D4B25FA9103000FB887 /* LoginView.swift */; };
+		E68501ED26055C8F008C87BC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68501EC26055C8F008C87BC /* User.swift */; };
+		E687D6D12608FFEC00E6BE94 /* HeightInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E687D6D02608FFEC00E6BE94 /* HeightInputView.swift */; };
+		E687D6D4260902D700E6BE94 /* PlaceholderStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E687D6D3260902D700E6BE94 /* PlaceholderStyle.swift */; };
 		E6A3BF1525FA972B0059D65B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A3BF1425FA972B0059D65B /* Constants.swift */; };
 		E6DAEA6D25FACB6D00A3CED7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAEA6C25FACB6D00A3CED7 /* MainView.swift */; };
 		E6DAEA7325FAD20400A3CED7 /* PersonalQuestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAEA7225FAD20400A3CED7 /* PersonalQuestionsView.swift */; };
 		E6DAEA7725FBEB2400A3CED7 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAEA7625FBEB2300A3CED7 /* RoundedButton.swift */; };
 		E6DAEA7D25FEA10800A3CED7 /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAEA7C25FEA10800A3CED7 /* LargeButton.swift */; };
+		E6DAEA84260189D000A3CED7 /* NavigationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAEA83260189CF00A3CED7 /* NavigationConfigurator.swift */; };
+		E6DAEA872601A08D00A3CED7 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAEA862601A08D00A3CED7 /* NavigationBarModifier.swift */; };
+		E6DAEA8A2601A27900A3CED7 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAEA892601A27900A3CED7 /* ViewExtensions.swift */; };
+		E6DAEA8E26029D6800A3CED7 /* GenderSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAEA8D26029D6800A3CED7 /* GenderSelectionView.swift */; };
+		E6DAEA9126029EEF00A3CED7 /* MotivationSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAEA9026029EEF00A3CED7 /* MotivationSelectionView.swift */; };
+		E6DAEA942602A7AD00A3CED7 /* AgeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAEA932602A7AD00A3CED7 /* AgeInputView.swift */; };
+		E6DAEA97260405C300A3CED7 /* WeightInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAEA96260405C300A3CED7 /* WeightInputView.swift */; };
+		E6DAEA9A2604090C00A3CED7 /* AppEnvironmentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAEA992604090C00A3CED7 /* AppEnvironmentData.swift */; };
+		E6DAEA9E260417EA00A3CED7 /* FrecuencySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAEA9D260417EA00A3CED7 /* FrecuencySelectionView.swift */; };
+		E6DAEAA12605292200A3CED7 /* WeightUnitToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAEAA02605292200A3CED7 /* WeightUnitToggleStyle.swift */; };
+		E6DAEAA42605365C00A3CED7 /* HowItWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAEAA32605365C00A3CED7 /* HowItWorksView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,11 +41,25 @@
 		E6090D4125FA75E7000FB887 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E6090D4325FA75E7000FB887 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6090D4B25FA9103000FB887 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E68501EC26055C8F008C87BC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E687D6D02608FFEC00E6BE94 /* HeightInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightInputView.swift; sourceTree = "<group>"; };
+		E687D6D3260902D700E6BE94 /* PlaceholderStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderStyle.swift; sourceTree = "<group>"; };
 		E6A3BF1425FA972B0059D65B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E6DAEA6C25FACB6D00A3CED7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E6DAEA7225FAD20400A3CED7 /* PersonalQuestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalQuestionsView.swift; sourceTree = "<group>"; };
 		E6DAEA7625FBEB2300A3CED7 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		E6DAEA7C25FEA10800A3CED7 /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
+		E6DAEA83260189CF00A3CED7 /* NavigationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationConfigurator.swift; sourceTree = "<group>"; };
+		E6DAEA862601A08D00A3CED7 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
+		E6DAEA892601A27900A3CED7 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		E6DAEA8D26029D6800A3CED7 /* GenderSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectionView.swift; sourceTree = "<group>"; };
+		E6DAEA9026029EEF00A3CED7 /* MotivationSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationSelectionView.swift; sourceTree = "<group>"; };
+		E6DAEA932602A7AD00A3CED7 /* AgeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeInputView.swift; sourceTree = "<group>"; };
+		E6DAEA96260405C300A3CED7 /* WeightInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightInputView.swift; sourceTree = "<group>"; };
+		E6DAEA992604090C00A3CED7 /* AppEnvironmentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironmentData.swift; sourceTree = "<group>"; };
+		E6DAEA9D260417EA00A3CED7 /* FrecuencySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrecuencySelectionView.swift; sourceTree = "<group>"; };
+		E6DAEAA02605292200A3CED7 /* WeightUnitToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightUnitToggleStyle.swift; sourceTree = "<group>"; };
+		E6DAEAA32605365C00A3CED7 /* HowItWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowItWorksView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +92,9 @@
 		E6090D3925FA75D9000FB887 /* Fit App */ = {
 			isa = PBXGroup;
 			children = (
+				E6DAEA82260189A700A3CED7 /* Helpers */,
+				E6DAEA812601899200A3CED7 /* Extensions */,
+				E6DAEA7F2601893F00A3CED7 /* Models */,
 				E6DAEA7B25FEA0D900A3CED7 /* Components */,
 				E6090D4A25FA90CE000FB887 /* Views */,
 				E6090D3A25FA75D9000FB887 /* Fit_AppApp.swift */,
@@ -86,10 +117,12 @@
 		E6090D4A25FA90CE000FB887 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E6DAEA8C26029D2F00A3CED7 /* PersonalQuestionsViews */,
 				E6090D3C25FA75D9000FB887 /* ContentView.swift */,
 				E6090D4B25FA9103000FB887 /* LoginView.swift */,
 				E6DAEA6C25FACB6D00A3CED7 /* MainView.swift */,
 				E6DAEA7225FAD20400A3CED7 /* PersonalQuestionsView.swift */,
+				E6DAEAA32605365C00A3CED7 /* HowItWorksView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -99,8 +132,49 @@
 			children = (
 				E6DAEA7625FBEB2300A3CED7 /* RoundedButton.swift */,
 				E6DAEA7C25FEA10800A3CED7 /* LargeButton.swift */,
+				E6DAEAA02605292200A3CED7 /* WeightUnitToggleStyle.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		E6DAEA7F2601893F00A3CED7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E6DAEA992604090C00A3CED7 /* AppEnvironmentData.swift */,
+				E68501EC26055C8F008C87BC /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E6DAEA812601899200A3CED7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E6DAEA892601A27900A3CED7 /* ViewExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E6DAEA82260189A700A3CED7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E6DAEA83260189CF00A3CED7 /* NavigationConfigurator.swift */,
+				E6DAEA862601A08D00A3CED7 /* NavigationBarModifier.swift */,
+				E687D6D3260902D700E6BE94 /* PlaceholderStyle.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E6DAEA8C26029D2F00A3CED7 /* PersonalQuestionsViews */ = {
+			isa = PBXGroup;
+			children = (
+				E6DAEA8D26029D6800A3CED7 /* GenderSelectionView.swift */,
+				E6DAEA9026029EEF00A3CED7 /* MotivationSelectionView.swift */,
+				E6DAEA932602A7AD00A3CED7 /* AgeInputView.swift */,
+				E6DAEA96260405C300A3CED7 /* WeightInputView.swift */,
+				E687D6D02608FFEC00E6BE94 /* HeightInputView.swift */,
+				E6DAEA9D260417EA00A3CED7 /* FrecuencySelectionView.swift */,
+			);
+			path = PersonalQuestionsViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,13 +246,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6DAEA8A2601A27900A3CED7 /* ViewExtensions.swift in Sources */,
+				E687D6D4260902D700E6BE94 /* PlaceholderStyle.swift in Sources */,
+				E687D6D12608FFEC00E6BE94 /* HeightInputView.swift in Sources */,
+				E6DAEA872601A08D00A3CED7 /* NavigationBarModifier.swift in Sources */,
 				E6090D4C25FA9103000FB887 /* LoginView.swift in Sources */,
+				E6DAEA9A2604090C00A3CED7 /* AppEnvironmentData.swift in Sources */,
+				E6DAEA9E260417EA00A3CED7 /* FrecuencySelectionView.swift in Sources */,
+				E68501ED26055C8F008C87BC /* User.swift in Sources */,
 				E6090D3D25FA75D9000FB887 /* ContentView.swift in Sources */,
 				E6090D3B25FA75D9000FB887 /* Fit_AppApp.swift in Sources */,
+				E6DAEAA12605292200A3CED7 /* WeightUnitToggleStyle.swift in Sources */,
+				E6DAEAA42605365C00A3CED7 /* HowItWorksView.swift in Sources */,
 				E6DAEA7D25FEA10800A3CED7 /* LargeButton.swift in Sources */,
+				E6DAEA8E26029D6800A3CED7 /* GenderSelectionView.swift in Sources */,
+				E6DAEA9126029EEF00A3CED7 /* MotivationSelectionView.swift in Sources */,
 				E6DAEA7325FAD20400A3CED7 /* PersonalQuestionsView.swift in Sources */,
+				E6DAEA942602A7AD00A3CED7 /* AgeInputView.swift in Sources */,
 				E6DAEA7725FBEB2400A3CED7 /* RoundedButton.swift in Sources */,
 				E6DAEA6D25FACB6D00A3CED7 /* MainView.swift in Sources */,
+				E6DAEA84260189D000A3CED7 /* NavigationConfigurator.swift in Sources */,
+				E6DAEA97260405C300A3CED7 /* WeightInputView.swift in Sources */,
 				E6A3BF1525FA972B0059D65B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
