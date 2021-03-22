@@ -117,11 +117,11 @@
 		E6090D4A25FA90CE000FB887 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E6DAEA8C26029D2F00A3CED7 /* PersonalQuestionsViews */,
 				E6090D3C25FA75D9000FB887 /* ContentView.swift */,
 				E6090D4B25FA9103000FB887 /* LoginView.swift */,
 				E6DAEA6C25FACB6D00A3CED7 /* MainView.swift */,
 				E6DAEA7225FAD20400A3CED7 /* PersonalQuestionsView.swift */,
+				E6DAEA8C26029D2F00A3CED7 /* PersonalQuestionsViews */,
 				E6DAEAA32605365C00A3CED7 /* HowItWorksView.swift */,
 			);
 			path = Views;

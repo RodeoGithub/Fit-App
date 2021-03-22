@@ -73,7 +73,7 @@ struct HeightInputView: View {
                     }
                     else {
                         Button(action: {
-                            self.unit = false
+                            self.unit = true
                         }) {
                             Text("Cm")
                                 .frame(width: 60, height: 40)
@@ -81,7 +81,7 @@ struct HeightInputView: View {
                         }
                         .padding()
                         Button (action: {
-                            self.unit = true
+                            self.unit = false
                         }) {
                             Text("Pies")
                                 .frame(width: 60, height: 40)
