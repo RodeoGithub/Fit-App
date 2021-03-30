@@ -33,7 +33,7 @@ struct MotivationSelectionView: View {
                                             selection: $env.currentPage,
                                             label: { EmptyView() })
         ZStack (alignment: .top) {
-            Color(K.Colors.grayColor).ignoresSafeArea()
+            Color(K.Colors.gray15).ignoresSafeArea()
             navigationLink.frame(width: 0, height: 0)
             VStack (alignment: .center) {
                 Group{
@@ -140,8 +140,9 @@ struct MotivationSelectionView: View {
                               withGradient: LinearGradient(gradient: Gradient(colors: [Color(K.Colors.startColor), Color(K.Colors.endColor)]), startPoint: .leading, endPoint: .trailing),
                               foregroundColor: .white) {
                     if selected != -1 {
-                        env.userMotivation = selected
-                        env.currentPage = .AgeInput
+                        print("hola bro yo tambien (2)")
+                        self.env.userMotivation = selected
+                        self.env.currentPage = .AgeInput
                     }
                     else {
                         alertIsPresented = true
@@ -155,7 +156,6 @@ struct MotivationSelectionView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: backButton)
     }

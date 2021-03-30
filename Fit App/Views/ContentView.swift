@@ -13,7 +13,9 @@ struct ContentView: View {
     @State var remaining = 0.75
     @State var timer = Timer.publish(every: 0.01, on: .current, in: .common).autoconnect()
     var body: some View {
-
+        
+        HomeView() // test home
+        /* test login
         ZStack{
             MainView()
             if !isLoaded {
@@ -31,7 +33,7 @@ struct ContentView: View {
                 }
             }
         }
-        
+        */
     }
 }
 

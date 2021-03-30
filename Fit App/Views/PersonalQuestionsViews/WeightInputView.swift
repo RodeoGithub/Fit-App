@@ -33,7 +33,7 @@ struct WeightInputView: View {
                                             tag: .HeightInput,
                                             selection: $env.currentPage, label: {EmptyView()})
         ZStack(alignment: .top) {
-            Color(K.Colors.grayColor).ignoresSafeArea()
+            Color(K.Colors.gray15).ignoresSafeArea()
             navigationLink.frame(width: 0, height: 0)
             VStack {
                 ProgressView(value: progressAmount, total:100)
@@ -136,7 +136,6 @@ struct WeightInputView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
-        .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarItems(leading: backButton)
     }
 }

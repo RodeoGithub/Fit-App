@@ -14,6 +14,7 @@ struct AgeInputView: View {
     @State var progressAmount: Double
     @State var age: String = ""
     @State var alertIsPresented = false
+    var t = true
     
     var backButton: some View {
         Button(action: {
@@ -33,7 +34,7 @@ struct AgeInputView: View {
                                             selection: $env.currentPage,
                                             label: { EmptyView() })
         ZStack(alignment: .top) {
-            Color(K.Colors.grayColor).ignoresSafeArea()
+            Color(K.Colors.gray15).ignoresSafeArea()
             navigationLink.frame(width: 0, height: 0)
             VStack {
                 Group {
@@ -58,6 +59,7 @@ struct AgeInputView: View {
                         .onReceive(Just(age)) { newValue in
                             let filtered = newValue.filter {"0123456789".contains($0)}
                             if filtered != newValue {
+                                print("Hola bro yo soy un hijo de remil puta")
                                 self.age = filtered
                             }
                         }
@@ -72,8 +74,9 @@ struct AgeInputView: View {
                 Spacer()
                 RoundedButton(text: "Siguiente", withGradient: K.Colors.defaultGradient, foregroundColor: .white) {
                     if age != "" {
-                        env.userAge = Int(age)
-                        env.currentPage = .WeightInput
+                        print("Hola bro yo soy un hijo de remil puta")
+                        self.env.userAge = Int(age)
+                        self.env.currentPage = .WeightInput
                     }
                     else {
                         alertIsPresented = true
@@ -87,8 +90,8 @@ struct AgeInputView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
-        .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarItems(leading: backButton)
+        
     }
 }
 

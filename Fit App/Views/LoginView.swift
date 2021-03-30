@@ -14,7 +14,7 @@ struct LoginView: View {
     var body: some View {
         GeometryReader { (proxy: GeometryProxy) in
                 ZStack(alignment: .top){
-                    Color(K.Colors.grayColor)
+                    Color(K.Colors.gray15)
                     
                     Image("background")
                         .edgesIgnoringSafeArea(.top)

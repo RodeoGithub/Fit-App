@@ -11,7 +11,7 @@ struct HowItWorksView: View {
     var body: some View {
         GeometryReader { geo in
             ZStack (alignment: .top){
-                Color(K.Colors.grayColor).ignoresSafeArea()
+                Color(K.Colors.gray15).ignoresSafeArea()
                 VStack {
                     Group {
                         Text("Omitir")

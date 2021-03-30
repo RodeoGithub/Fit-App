@@ -24,9 +24,9 @@ struct PersonalQuestionsView: View {
         NavigationView {
             GenderSelectionView()
                 .navigationBarTitleDisplayMode(.inline)
-                .navigationViewStyle(StackNavigationViewStyle())
         }
-        .navigationBarColor(K.Colors.grayColor)
+        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationBarColor(K.Colors.gray15)
     }
 }
 

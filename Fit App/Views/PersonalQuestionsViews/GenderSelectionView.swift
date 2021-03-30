@@ -21,7 +21,7 @@ struct GenderSelectionView: View {
                                             selection: $env.currentPage,
                                             label: { EmptyView() })
         ZStack {
-            Color(K.Colors.grayColor).edgesIgnoringSafeArea(.all)
+            Color(K.Colors.gray15).edgesIgnoringSafeArea(.all)
             navigationLink.frame(width: 0, height: 0)
             VStack (alignment: .center) {
                 ProgressView(value: progressAmount, total:100)
@@ -68,12 +68,12 @@ struct GenderSelectionView: View {
                 RoundedButton(text: "SIGUIENTE",
                               withGradient: selectedColor,
                               foregroundColor: .white) {
+                    print("Hola bro yo(1) funciono bien")
                     self.env.currentPage = .MotivationSelection
                 }.padding()
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
