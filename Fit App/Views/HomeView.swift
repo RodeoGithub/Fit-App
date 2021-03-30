@@ -13,10 +13,14 @@ import MapboxSearch
 struct HomeView: View {
     
     @ObservedObject private var locationManager = LocationManager()
+
+    @State private var annotations: [MGLPointAnnotation] = [
+        MGLPointAnnotation(title: "Gym1", coordinate: .init(latitude: -27.4495, longitude: -59.0205)),
+        MGLPointAnnotation(title: "Gym2", coordinate: .init(latitude: -27.45202, longitude: -59.02103))]
     
-    @State private var annotations: [MGLPointAnnotation] = []
     private let defaultLocation = CLLocationCoordinate2D(latitude: -34.6083, longitude: -58.3712) // Ciudad de Buenos Aires
     let engine = SearchEngine()
+    
     init() {
         locationManager.startUpdating()
     }
@@ -49,7 +53,7 @@ struct HomeView: View {
                                 }
                             }.frame(width: geometry.size.width, height: 200, alignment: .center)
                             WeekView()
-                                .offset(y: -50)
+                                .offset(y: -60)
                         }
                     }
                 }
@@ -58,7 +62,6 @@ struct HomeView: View {
                     Spacer()
                     Button(action:{
                         map.refreshMapCenter()
-                        map.searchGyms()
                     }) {
                         Image(systemName: "location")
                             .frame(width: 50, height: 50, alignment: .center)
@@ -75,6 +78,10 @@ struct HomeView: View {
                 }
             }
         }.ignoresSafeArea(edges: .vertical)
+    }
+    
+    func search() {
+        
     }
 }
 

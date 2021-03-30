@@ -159,7 +159,6 @@
 				E6DAEAA32605365C00A3CED7 /* HowItWorksView.swift */,
 				E6EEEE0B260B97F000AE480D /* HomeView.swift */,
 				E6EEEE0E260B986000AE480D /* MapView.swift */,
-				E61DC11C26124A9100747690 /* WeekView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,6 +170,7 @@
 				E6DAEA7C25FEA10800A3CED7 /* LargeButton.swift */,
 				E6DAEAA02605292200A3CED7 /* WeightUnitToggleStyle.swift */,
 				E6EEEE14260FD8A000AE480D /* ProfilePhotoView.swift */,
+				E61DC11C26124A9100747690 /* WeekView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";

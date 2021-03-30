@@ -23,7 +23,9 @@ struct MapView: UIViewRepresentable {
     private let mapView = MGLMapView(frame: .zero, styleURL: MGLStyle.streetsStyleURL)
     
     @Binding var annotations: [MGLPointAnnotation]
-
+    
+    let searchEngine = SearchEngine()
+    
     private func updateAnnotations() {
         if let currentAnnotations = mapView.annotations {
             mapView.removeAnnotations(currentAnnotations)
@@ -34,7 +36,7 @@ struct MapView: UIViewRepresentable {
     func makeUIView(context: Context) -> MGLMapView {
         
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        //searchGyms()
+        searchEngine.delegate = context.coordinator
         return mapView
     }
 
@@ -73,11 +75,16 @@ struct MapView: UIViewRepresentable {
     
     // MARK:- Coordinator
     
-    final class Coordinator: NSObject, MGLMapViewDelegate {
+    final class Coordinator: NSObject, MGLMapViewDelegate, SearchEngineDelegate {
         var control: MapView
-
+        
         init(_ control: MapView) {
             self.control = control
+        }
+        
+        
+        func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
+                //
         }
 
         func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
@@ -87,24 +94,37 @@ struct MapView: UIViewRepresentable {
         func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
             return true
         }
-    }
-    
-    // MARK:- Search
-    
-    func searchGyms(){
-        let searchEngine = CategorySearchEngine()
-        searchEngine.search(categoryName: "cafe", options: SearchOptions(proximity: CLLocationCoordinate2D(latitude: 37.7911551, longitude: 32.3966103))) { (response) in
-            do {
-                let results = try response.get()
-                for result in results {
-                    //testing
-                    print(result.coordinate)
-                    print(result.name)
-                }
+        
+        //MARK: - Search Delegate
+        func resultsUpdated(searchEngine: SearchEngine) {
+            print("Number of search results: \(searchEngine.items.count)")
+            
+            /// Simulate user selection with random algorithm
+            guard let randomSuggestion: SearchSuggestion = searchEngine.items.randomElement() else {
+                print("No available suggestions to select")
+                return
             }
-            catch {
-                print("error: \(error.localizedDescription)")
-            }
+            
+            /// Callback to SearchEngine with choosen `SearchSuggestion`
+            searchEngine.select(suggestion: randomSuggestion)
+            
+            /// We may expect `resolvedResult(result:)` to be called next
+            /// or the new round of `resultsUpdated(searchEngine:)` in case if randomSuggestion represents category suggestion (like a 'bar' or 'cafe')
+        }
+        
+        func resolvedResult(result: SearchResult) {
+            /// WooHoo, we retrieved the resolved `SearchResult`
+            print("Resolved result: coordinate: \(result.coordinate), address: \(result.address?.formattedAddress(style: .medium) ?? "N/A")")
+            
+            print("Dumping resolved result:", dump(result))
+            
+        }
+        
+        func searchErrorHappened(searchError: SearchError) {
+            print("Error during search: \(searchError)")
         }
     }
+    
 }
+
+

@@ -24,7 +24,7 @@ struct ProfilePhotoView: View {
                     .clipShape(Circle())
                 Text("\(points)")
                     .foregroundColor(.white)
-                    .padding(4)
+                    .padding(6)
                     .background(K.Colors.defaultGradient)
                     .clipShape(Circle())
                     .overlay(Circle()

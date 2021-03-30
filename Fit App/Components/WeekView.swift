@@ -13,7 +13,7 @@ struct WeekView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 24)
                 .foregroundColor(Color(K.Colors.gray19))
-                .frame(width: 328, height: 180)
+                .frame(width: 328, height: 158)
             VStack {
                 HStack {
                     ForEach (K.daysOfTheWeek) { day in
