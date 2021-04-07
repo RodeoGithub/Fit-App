@@ -128,7 +128,7 @@ struct WeightInputView: View {
                         viewRouter.currentView = .HeightInput
                     }
                     else {
-                        alertIsPresented = true
+                        alertIsPresented.toggle()
                     }
                 }.padding()
                 

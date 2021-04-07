@@ -59,7 +59,7 @@ struct FrecuencySelectionView: View {
                         Spacer()
                         Text("Muy activo")
                             .foregroundColor(Color(K.Colors.gray68))
-                    }
+                    }.padding(.horizontal, 16)
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 5)

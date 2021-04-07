@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MainView: View {
     var isFirstTime = true
-    let user = User(email: "maidanarodrigo@mail.com", pass: "1234") //Hardcoded Validation
     
     @StateObject var viewRouter: ViewRouter
     

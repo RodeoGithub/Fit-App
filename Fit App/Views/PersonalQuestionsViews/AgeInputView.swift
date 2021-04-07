@@ -76,7 +76,7 @@ struct AgeInputView: View {
                         viewRouter.currentView = .WeightInput
                     }
                     else {
-                        alertIsPresented = true
+                        alertIsPresented.toggle()
                     }
                 }.padding()
                 

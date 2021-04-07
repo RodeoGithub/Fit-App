@@ -21,6 +21,7 @@ struct HomeView: View {
     
     @StateObject var viewRouter: ViewRouter
     
+    @State var isGymListPresented = false
     private let defaultLocation = CLLocationCoordinate2D(latitude: -34.6083, longitude: -58.3712) // Ciudad de Buenos Aires
     let engine = SearchEngine()
     
@@ -59,35 +60,53 @@ struct HomeView: View {
                 Spacer()
                 HStack{
                     Spacer()
-                    Button(action:{
-                        map.refreshMapCenter()
-                    }) {
-                        Image(systemName: "location")
-                            .frame(width: 50, height: 50, alignment: .center)
-                            .foregroundColor(.white)
+                    VStack {
+                        Button(action:{
+                            withAnimation{
+                                isGymListPresented.toggle()
+                            }
+                        }) {
+                            Image(systemName: "list.bullet")
+                                .frame(width: 50, height: 50, alignment: .center)
+                                .foregroundColor(.white)
+                        }
+                        .frame(width: 60, height: 60)
+                        .background(K.Colors.defaultGradient)
+                        .cornerRadius(35)
+                        .padding()
+                        .shadow(color: Color.black.opacity(0.3),
+                                radius: 3,
+                                x: 3,
+                                y: 3)
+                        
+                        Button(action:{
+                            map.refreshMapCenter()
+                        }) {
+                            Image(systemName: "location")
+                                .frame(width: 50, height: 50, alignment: .center)
+                                .foregroundColor(.white)
+                        }
+                        .frame(width: 60, height: 60)
+                        .background(K.Colors.defaultGradient)
+                        .cornerRadius(35)
+                        .padding()
+                        .shadow(color: Color.black.opacity(0.3),
+                                radius: 3,
+                                x: 3,
+                                y: 3)
                     }
-                    .frame(width: 70, height: 70)
-                    .background(K.Colors.defaultGradient)
-                    .cornerRadius(35)
-                    .padding()
-                    .shadow(color: Color.black.opacity(0.3),
-                            radius: 3,
-                            x: 3,
-                            y: 3)
                 }
             }
         }.ignoresSafeArea(edges: .vertical)
         .onAppear(perform: startUpdatingLocation)
+        
+        .sheet(isPresented: $isGymListPresented) {
+            GymListView()
+        }
     }
     
     private func startUpdatingLocation() {
         locationManager.startUpdating()
-        print("user age: \(env.userAge!)")
-        print("user mot: \(env.userMotivation!)")
-        print("user gender: \(env.userGender!)")
-        print("user Weight: \(env.userWeight!)")
-        print("user Height: \(env.userHeight!)")
-        print("user Frecuency: \(env.userFrecuency!)")
     }
 }
 

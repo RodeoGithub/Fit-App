@@ -9,11 +9,17 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject var viewRouter: ViewRouter
+    
     var isFirstTime = true
+    
+    let user = User(email: "User@gmail.com", pass: "1234") //Hardcoded Validation
+    
     @Binding var signInSuccess: Bool
     
     @State private var email: String = ""
     @State private var password: String = ""
+    
+    @State private var alertIsPresented = false
     
     var body: some View {
         GeometryReader { (proxy: GeometryProxy) in
@@ -45,13 +51,18 @@ struct LoginView: View {
                                                                    startPoint: .leading,
                                                                    endPoint: .trailing),
                                       foregroundColor: .white) {
-                            withAnimation {
-                                if isFirstTime {
-                                    viewRouter.currentView = .GenderSelection
+                            if email == user.email && password == user.pass {
+                                withAnimation {
+                                    if isFirstTime {
+                                        viewRouter.currentView = .GenderSelection
+                                    }
+                                    else {
+                                        viewRouter.currentView = .Home
+                                    }
                                 }
-                                else {
-                                    viewRouter.currentView = .Home
-                                }
+                            }
+                            else {
+                                alertIsPresented.toggle()
                             }
                         }.padding()
                         
@@ -80,6 +91,10 @@ struct LoginView: View {
                     }
                 }
             .frame(width: proxy.size.width, height: proxy.size.height, alignment: .top)
+        }
+        
+        .alert(isPresented: $alertIsPresented) {
+            Alert(title: Text("Ingreso Incorrecto"), message: Text("Usuario o contraseña incorrectos"), dismissButton: .default(Text("OK!")))
         }
     }
 }

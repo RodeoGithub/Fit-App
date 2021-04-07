@@ -17,6 +17,8 @@ struct HeightInputView: View {
     @State var unit: Bool = true
     @State var height: String = ""
     
+    @State var alertIsPresented = false
+    
     var body: some View {
         
         ZStack(alignment: .top) {
@@ -122,10 +124,19 @@ struct HeightInputView: View {
                 }
                 Spacer()
                 RoundedButton(text: "Siguiente", withGradient: K.Colors.defaultGradient, foregroundColor: .white) {
-                    self.env.userHeight = Int(height)
+                    if height != "" {
+                        self.env.userHeight = Int(height)
+                        viewRouter.currentView = .FrecuencySelection
+                    }
+                    else {
+                        alertIsPresented.toggle()
+                    }
                     
-                    viewRouter.currentView = .FrecuencySelection
                 }.padding()
+                
+                .alert(isPresented: $alertIsPresented) {
+                    Alert(title: Text("Por favor, ingrese su altura actual"), dismissButton: .default(Text("OK!")))
+                }
             }
         }
     }

@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
-import Combine
 
 struct HostNavigationView: View {
     @StateObject var viewRouter: ViewRouter
     @State var isLoggedIn: Bool = false
     @StateObject var env = AppEnviromentData()
     var body: some View {
+        
         switch viewRouter.currentView {
         case .Home:
             HomeView(viewRouter: viewRouter)
@@ -42,5 +42,7 @@ struct HostNavigationView: View {
         case .HowItWorks:
             HowItWorksView(viewRouter: viewRouter)
         }
+ 
     }
+ 
 }
