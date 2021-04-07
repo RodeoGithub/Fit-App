@@ -8,16 +8,22 @@
 import SwiftUI
 
 struct HowItWorksView: View {
+    @StateObject var viewRouter: ViewRouter
+    
     var body: some View {
         GeometryReader { geo in
             ZStack (alignment: .top){
                 Color(K.Colors.gray15).ignoresSafeArea()
                 VStack {
                     Group {
-                        Text("Omitir")
-                            .foregroundColor(.gray)
-                            .fixedSize()
-                            .padding(.trailing,30)
+                        Button(action: {
+                            viewRouter.currentView = .Home
+                        }) {
+                            Text("Omitir")
+                                .foregroundColor(.gray)
+                                .fixedSize()
+                                .padding(.trailing,30)
+                        }
                     }.frame(width: geo.size.width, alignment: .topTrailing)
                     
                     Group {
@@ -95,6 +101,6 @@ struct CircularCheckmark: View {
 
 struct HowItWorksView_Previews: PreviewProvider {
     static var previews: some View {
-        HowItWorksView()
+        HowItWorksView(viewRouter: ViewRouter())
     }
 }

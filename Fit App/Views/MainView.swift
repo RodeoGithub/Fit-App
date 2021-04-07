@@ -1,32 +1,70 @@
 //
-//  MainView.swift
+//  ContentView.swift
 //  Fit App
 //
 //  Created by Rodrigo Maidana on 11/03/2021.
 //
 
 import SwiftUI
-import Combine
 
 struct MainView: View {
-    @State var signInSuccess = false
-    @StateObject var env: AppEnviromentData = AppEnviromentData()
+    var isFirstTime = true
+    let user = User(email: "maidanarodrigo@mail.com", pass: "1234") //Hardcoded Validation
+    
+    @StateObject var viewRouter: ViewRouter
+    
+    @State var isLoggedIn = false
+    
+    @State private var isLoaded = false
+    @State var remaining = 0.75
+    @State var timer = Timer.publish(every: 0.01, on: .current, in: .common).autoconnect()
+    
     var body: some View {
-        return Group {
-            if signInSuccess {
-                PersonalQuestionsView().environmentObject(env)
+        ZStack {
+            if !isLoaded {
+                WelcomeView()
+                    .edgesIgnoringSafeArea(.all)
+                    .transition(.scale)
             }
-            else {
-                LoginView(signInSuccess: $signInSuccess)
+        }.edgesIgnoringSafeArea(.all)
+        .onReceive(timer) { _ in
+            self.remaining -= 0.01
+            if self.remaining <= 0 {
+                timer.upstream.connect().cancel()
+                withAnimation{
+                    self.isLoaded.toggle()
+                }
+                if isLoggedIn {
+                    if isFirstTime {
+                        viewRouter.currentView = .GenderSelection
+                    }
+                    else {
+                        viewRouter.currentView = .Home
+                    }
+                }
+                else {
+                    viewRouter.currentView = .Login
+                }
             }
+            
+        }
+    }
+}
+
+struct WelcomeView: View {
+    var body: some View {
+        ZStack(alignment: .center){
+            LinearGradient(gradient:
+                            Gradient(colors: [Color(K.Colors.startColor), Color(K.Colors.endColor)]), startPoint: .top, endPoint: .bottom)
+            Image("logo")
         }
     }
 }
 
 #if DEBUG
-struct MainView_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(viewRouter: ViewRouter())
     }
 }
 #endif

@@ -1,17 +1,28 @@
-//
 //  Fit_AppApp.swift
-//  Fit App
-//
-//  Created by Rodrigo Maidana on 11/03/2021.
-//
 
 import SwiftUI
 
 @main
 struct Fit_AppApp: App {
+    
+    @StateObject var viewRouter = ViewRouter()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HostNavigationView(viewRouter: viewRouter)
         }
     }
+}
+
+enum Navigation {
+    case Home
+    case Main
+    case Login
+    case GenderSelection
+    case MotivationSelection
+    case AgeInput
+    case WeightInput
+    case HeightInput
+    case FrecuencySelection
+    case HowItWorks
 }

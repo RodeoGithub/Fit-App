@@ -39,6 +39,10 @@ struct K {
                                        green: 0.27,
                                        blue: 0.27,
                                        alpha: 1.00)
+        static let gray68 = UIColor(red: 0.68,
+                                    green: 0.68,
+                                    blue: 0.68,
+                                    alpha: 1.00)
         static let gray72 = UIColor(red: 0.72,
                                        green: 0.72,
                                        blue: 0.72,
@@ -48,6 +52,12 @@ struct K {
     }
     struct Strings {
         static let mapboxURL = "mapbox://styles/mapbox/streets-v11"
+        struct Frecuency {
+            static let frecuency0 = "Hago ejercicio de 0-1 veces a la semana."
+            static let frecuency1 = "Hago ejercicio de 2-3 veces a la semana."
+            static let frecuency2 = "Hago ejercicio de 3-4 veces a la semana."
+            static let frecuency3 = "Hago ejercicio de 5-7 veces a la semana."
+        }
     }
     
     static let daysOfTheWeek = [dayOfTheWeek(name: "Domingo", shortName: "Dom."),

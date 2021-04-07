@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 import SwiftUI
 
-final class AppEnviromentData: ObservableObject {
-    @Published var currentPage: PersonalQuestions? = .GenderSelection
+class AppEnviromentData: ObservableObject {
+    //@Published var currentPage: Navigation? = .GenderSelection
     @Published var userGender: Bool? = false
     @Published var userWeight: Int? = 0
     @Published var usedWeightUnit: Bool? = true //KG

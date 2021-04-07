@@ -10,38 +10,39 @@ import Combine
 
 struct WeightInputView: View {
     @EnvironmentObject var env: AppEnviromentData
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State var progressAmount: Double
+    
+    @StateObject var viewRouter: ViewRouter
+    
+    @State var progressAmount: Double = 66.7
     @State var weight: String = ""
     @State var unit: Bool = true
     @State var alertIsPresented = false
-    
-    var backButton: some View {
-        Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-        }) {
-            Image(systemName: "chevron.backward")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .foregroundColor(.white)
-        }.padding()
-        .contentShape(Rectangle())
-    }
-    
+
     var body: some View {
-        let navigationLink = NavigationLink(destination: HeightInputView(progressAmount: 83.3),
-                                            tag: .HeightInput,
-                                            selection: $env.currentPage, label: {EmptyView()})
         ZStack(alignment: .top) {
             Color(K.Colors.gray15).ignoresSafeArea()
-            navigationLink.frame(width: 0, height: 0)
             VStack {
-                ProgressView(value: progressAmount, total:100)
-                    .frame(width: 236, alignment: .center)
-                    .progressViewStyle(LinearProgressViewStyle(tint: Color(K.Colors.startColor)))
-                    .scaleEffect(1.2)
-                    .shadow(radius: 10)
-                Text("Cual es tu peso actual?")
+                HStack {
+                    Button(action: {
+                        withAnimation(.easeOut) {
+                            viewRouter.currentView = .AgeInput
+                        }
+                    }) {
+                        Image(systemName: "chevron.backward")
+                            .aspectRatio(contentMode: .fit)
+                            .foregroundColor(.white)
+                    }.padding()
+                    .contentShape(Rectangle())
+                    .padding()
+                    ProgressView(value: progressAmount, total:100)
+                        .frame(width: 236, alignment: .center)
+                        .progressViewStyle(LinearProgressViewStyle(tint: Color(K.Colors.startColor)))
+                        .scaleEffect(1.2)
+                        .shadow(radius: 10)
+                    Spacer()
+                }
+                
+                Text("Cuál es tu peso actual?")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
@@ -73,7 +74,7 @@ struct WeightInputView: View {
                     }
                     else {
                         Button(action: {
-                            self.unit = false
+                            self.unit = true
                         }) {
                             Text("Kg")
                                 .frame(width: 60, height: 40)
@@ -81,9 +82,9 @@ struct WeightInputView: View {
                         }
                         .padding()
                         Button (action: {
-                            self.unit = true
+                            self.unit = false
                         }) {
-                            Text("Kg")
+                            Text("Lb")
                                 .frame(width: 60, height: 40)
                                 .background(K.Colors.defaultGradient)
                                 .foregroundColor(.white)
@@ -104,8 +105,9 @@ struct WeightInputView: View {
                             }
                         }
                         .frame(width: 80, height: 80, alignment: .center)
-                        .font(Font.system(size: 28))
+                        .font(.title)
                         .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
                     if unit {
                         Text("Kg")
                             .font(Font.system(.body))
@@ -122,7 +124,8 @@ struct WeightInputView: View {
                 RoundedButton(text: "Siguiente", withGradient: K.Colors.defaultGradient, foregroundColor: .white) {
                     if weight != "" {
                         self.env.userWeight = Int(weight)
-                        self.env.currentPage = .HeightInput
+                        
+                        viewRouter.currentView = .HeightInput
                     }
                     else {
                         alertIsPresented = true
@@ -134,14 +137,6 @@ struct WeightInputView: View {
                 }
             }
         }
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: backButton)
     }
 }
 
-struct WeightInputView_Previews: PreviewProvider {
-    static var previews: some View {
-        WeightInputView(progressAmount: 80.0)
-    }
-}

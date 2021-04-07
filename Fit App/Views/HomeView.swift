@@ -11,19 +11,18 @@ import Mapbox
 import MapboxSearch
 
 struct HomeView: View {
+    @EnvironmentObject var env: AppEnviromentData
     
     @ObservedObject private var locationManager = LocationManager()
-
+    @State private var isInitialized = true
     @State private var annotations: [MGLPointAnnotation] = [
         MGLPointAnnotation(title: "Gym1", coordinate: .init(latitude: -27.4495, longitude: -59.0205)),
         MGLPointAnnotation(title: "Gym2", coordinate: .init(latitude: -27.45202, longitude: -59.02103))]
     
+    @StateObject var viewRouter: ViewRouter
+    
     private let defaultLocation = CLLocationCoordinate2D(latitude: -34.6083, longitude: -58.3712) // Ciudad de Buenos Aires
     let engine = SearchEngine()
-    
-    init() {
-        locationManager.startUpdating()
-    }
     
     var body: some View {
         let map = MapView(annotations: $annotations)
@@ -78,15 +77,22 @@ struct HomeView: View {
                 }
             }
         }.ignoresSafeArea(edges: .vertical)
+        .onAppear(perform: startUpdatingLocation)
     }
     
-    func search() {
-        
+    private func startUpdatingLocation() {
+        locationManager.startUpdating()
+        print("user age: \(env.userAge!)")
+        print("user mot: \(env.userMotivation!)")
+        print("user gender: \(env.userGender!)")
+        print("user Weight: \(env.userWeight!)")
+        print("user Height: \(env.userHeight!)")
+        print("user Frecuency: \(env.userFrecuency!)")
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(viewRouter: ViewRouter())
     }
 }

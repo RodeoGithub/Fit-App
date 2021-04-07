@@ -9,40 +9,39 @@ import SwiftUI
 
 struct MotivationSelectionView: View {
     @EnvironmentObject var env: AppEnviromentData
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State var progressAmount: Double
+    @StateObject var viewRouter: ViewRouter
+    
+    
+    @State var progressAmount: Double = 33.4
     @State private var selection: String?
     @State var selected: Int = -1
     @State private var alertIsPresented = false
     
-    var backButton: some View {
-        Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-        }) {
-            Image(systemName: "chevron.backward")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .foregroundColor(.white)
-        }.padding()
-        .contentShape(Rectangle())
-    }
-    
     var body: some View {
-        let navigationLink = NavigationLink(destination: AgeInputView(progressAmount: 49.97),
-                                            tag: .AgeInput,
-                                            selection: $env.currentPage,
-                                            label: { EmptyView() })
         ZStack (alignment: .top) {
             Color(K.Colors.gray15).ignoresSafeArea()
-            navigationLink.frame(width: 0, height: 0)
             VStack (alignment: .center) {
                 Group{
                     VStack {
-                        ProgressView(value: progressAmount, total:100)
-                            .frame(width: 236, alignment: .center)
-                            .progressViewStyle(LinearProgressViewStyle(tint: Color(K.Colors.startColor)))
-                            .scaleEffect(1.2)
-                            .shadow(radius: 10)
+                        HStack {
+                            Button(action: {
+                                withAnimation(.easeOut) {
+                                    viewRouter.currentView = .GenderSelection
+                                }
+                            }) {
+                                Image(systemName: "chevron.backward")
+                                    .aspectRatio(contentMode: .fit)
+                                    .foregroundColor(.white)
+                            }.padding()
+                            .contentShape(Rectangle())
+                            .padding()
+                            ProgressView(value: progressAmount, total:100)
+                                .frame(width: 236, alignment: .center)
+                                .progressViewStyle(LinearProgressViewStyle(tint: Color(K.Colors.startColor)))
+                                .scaleEffect(1.2)
+                                .shadow(radius: 10)
+                            Spacer()
+                        }
                         Text("¿Qué es lo que más te motiva?")
                             .fontWeight(.bold)
                             .font(.largeTitle)
@@ -140,29 +139,26 @@ struct MotivationSelectionView: View {
                               withGradient: LinearGradient(gradient: Gradient(colors: [Color(K.Colors.startColor), Color(K.Colors.endColor)]), startPoint: .leading, endPoint: .trailing),
                               foregroundColor: .white) {
                     if selected != -1 {
-                        print("hola bro yo tambien (2)")
                         self.env.userMotivation = selected
-                        self.env.currentPage = .AgeInput
+                        withAnimation(.easeIn) {
+                            viewRouter.currentView = .AgeInput
+                        }
                     }
                     else {
                         alertIsPresented = true
                     }
                 }.padding()
                 
-                
                 .alert(isPresented: $alertIsPresented) {
                     Alert(title: Text("Por favor, Seleccione una opción"), dismissButton: .default(Text("OK!")))
                 }
             }
         }
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: backButton)
     }
 }
 
 struct MotivationSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        MotivationSelectionView(progressAmount: 40.0)
+        MotivationSelectionView(viewRouter: ViewRouter(), progressAmount: 40.0)
     }
 }

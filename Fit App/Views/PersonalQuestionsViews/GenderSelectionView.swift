@@ -9,6 +9,9 @@ import SwiftUI
 
 struct GenderSelectionView: View {
     @EnvironmentObject var env: AppEnviromentData
+    
+    @StateObject var viewRouter: ViewRouter
+    
     @State var progressAmount = 16.7
     @State var selectedGender = false
     
@@ -16,19 +19,27 @@ struct GenderSelectionView: View {
     let unselectedColor = Color.gray
     
     var body: some View {
-        let navigationLink = NavigationLink(destination: MotivationSelectionView(progressAmount: 33.3),
-                                            tag: .MotivationSelection,
-                                            selection: $env.currentPage,
-                                            label: { EmptyView() })
         ZStack {
             Color(K.Colors.gray15).edgesIgnoringSafeArea(.all)
-            navigationLink.frame(width: 0, height: 0)
             VStack (alignment: .center) {
-                ProgressView(value: progressAmount, total:100)
-                    .frame(width: 236, alignment: .center)
-                    .progressViewStyle(LinearProgressViewStyle(tint: Color(K.Colors.startColor)))
-                    .scaleEffect(1.2)
-                    .shadow(radius: 10)
+                HStack {
+                    Button(action: {
+                        //
+                    }) {
+                        Image(systemName: "chevron.backward")
+                            .aspectRatio(contentMode: .fit)
+                            .foregroundColor(.white)
+                    }.padding()
+                    .contentShape(Rectangle())
+                    .padding()
+                    .opacity(0)
+                    ProgressView(value: progressAmount, total:100)
+                        .frame(width: 236, alignment: .center)
+                        .progressViewStyle(LinearProgressViewStyle(tint: Color(K.Colors.startColor)))
+                        .scaleEffect(1.2)
+                        .shadow(radius: 10)
+                    Spacer()
+                }
                 Text("Cuentanos Sobre ti!")
                     .font(.largeTitle)
                     .bold()
@@ -65,11 +76,11 @@ struct GenderSelectionView: View {
                     }.padding()
                 }
                 Spacer()
-                RoundedButton(text: "SIGUIENTE",
-                              withGradient: selectedColor,
-                              foregroundColor: .white) {
-                    print("Hola bro yo(1) funciono bien")
-                    self.env.currentPage = .MotivationSelection
+                RoundedButton(text: "SIGUIENTE", withGradient: selectedColor, foregroundColor: .white) {
+                    withAnimation(.easeIn) {
+                        self.env.userGender = selectedGender
+                        viewRouter.currentView = .MotivationSelection
+                    }
                 }.padding()
             }
         }
@@ -80,7 +91,7 @@ struct GenderSelectionView: View {
 #if DEBUG
 struct GenderSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        GenderSelectionView()
+        GenderSelectionView(viewRouter: ViewRouter())
     }
 }
 #endif

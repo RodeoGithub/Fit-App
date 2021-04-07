@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct LoginView: View {
+    @StateObject var viewRouter: ViewRouter
+    var isFirstTime = true
+    @Binding var signInSuccess: Bool
+    
     @State private var email: String = ""
     @State private var password: String = ""
-    @Binding var signInSuccess: Bool
+    
     var body: some View {
         GeometryReader { (proxy: GeometryProxy) in
                 ZStack(alignment: .top){
-                    Color(K.Colors.gray15)
+                    Color(K.Colors.gray15).ignoresSafeArea()
                     
                     Image("background")
                         .edgesIgnoringSafeArea(.top)
@@ -42,7 +46,12 @@ struct LoginView: View {
                                                                    endPoint: .trailing),
                                       foregroundColor: .white) {
                             withAnimation {
-                                signInSuccess.toggle()
+                                if isFirstTime {
+                                    viewRouter.currentView = .GenderSelection
+                                }
+                                else {
+                                    viewRouter.currentView = .Home
+                                }
                             }
                         }.padding()
                         
@@ -90,7 +99,7 @@ extension View {
 struct LoginView_Previews: PreviewProvider {
     @State static var signInSuccess = false
     static var previews: some View {
-        LoginView(signInSuccess: $signInSuccess)
+        LoginView(viewRouter: ViewRouter(), signInSuccess: $signInSuccess)
     }
 }
 #endif
