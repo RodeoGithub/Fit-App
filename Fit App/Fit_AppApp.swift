@@ -15,15 +15,3 @@ struct Fit_AppApp: App {
     }
 }
 
-enum Navigation {
-    case Home
-    case Main
-    case Login
-    case GenderSelection
-    case MotivationSelection
-    case AgeInput
-    case WeightInput
-    case HeightInput
-    case FrecuencySelection
-    case HowItWorks
-}

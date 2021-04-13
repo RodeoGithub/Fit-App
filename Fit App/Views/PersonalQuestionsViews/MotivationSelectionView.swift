@@ -1,9 +1,4 @@
-//
 //  MotivationSelectionView.swift
-//  Fit App
-//
-//  Created by Rodrigo Maidana on 17/03/2021.
-//
 
 import SwiftUI
 

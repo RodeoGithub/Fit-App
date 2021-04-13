@@ -1,9 +1,4 @@
-//
 //  ViewExtensions.swift
-//  Fit App
-//
-//  Created by Rodrigo Maidana on 16/03/2021.
-//
 
 import UIKit
 import SwiftUI

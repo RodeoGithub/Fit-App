@@ -1,47 +1,72 @@
-//
 //  WeekView.swift
-//  Fit App
-//
-//  Created by Rodrigo Maidana on 29/03/2021.
-//
 
 import SwiftUI
 
 struct WeekView: View {
+    let expanded: Bool
+    @StateObject var viewRouter: ViewRouter
+    init(viewRouter: ViewRouter, withDetail expanded: Bool) {
+        _viewRouter = StateObject(wrappedValue: viewRouter)
+        self.expanded = expanded
+    }
     
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 24)
-                .foregroundColor(Color(K.Colors.gray19))
-                .frame(width: 328, height: 158)
+        ZStack(alignment: .top) {
+//            RoundedRectangle(cornerRadius: 24)
+//                .foregroundColor()
+//                .frame(height: expanded ? 79 : 158)
             VStack {
-                HStack {
-                    ForEach (K.daysOfTheWeek) { day in
-                        VStack {
-                            Text(day.shortName)
-                                .foregroundColor(Color(K.Colors.gray72))
-                            Circle()
-                                .frame(width: 25, height: 25)
-                                .foregroundColor(Color(K.Colors.gray27))
+//                HStack {
+//                    Spacer()
+                    HStack {
+                        Spacer()
+                        ForEach (K.daysOfTheWeek) { day in
+                            VStack {
+                                if Date().dayNumberOfTheWeek() == day.dayNumber {
+                                    Text(day.shortName)
+                                        .foregroundColor(Color(K.Colors.startColor))
+                                    Circle()
+                                        .frame(width: 25, height: 25)
+                                        .foregroundColor(Color(K.Colors.gray27))
+                                }
+                                else {
+                                    Text(day.shortName)
+                                        .foregroundColor(Color(K.Colors.gray72))
+                                    Circle()
+                                        .frame(width: 25, height: 25)
+                                        .foregroundColor(Color(K.Colors.gray27))
+                                }
+                            }
+                        }
+                        Spacer()
+                    }
+                    if !expanded {
+                        Button(action: {
+                            withAnimation {
+                                viewRouter.currentView = .WeekDetail
+                            }
+                        }) {
+                            HStack {
+                                Spacer()
+                                Text("VER MI SEMANA")
+                                    .italic().bold()
+                                    .padding(8)
+                                Spacer()
+                            }
+                            .foregroundColor(.white)
+                            .background(Color(K.Colors.gray17))
+                            .cornerRadius(24)
+                            .padding(.horizontal,16)
+                            .padding(.top, 12)
                         }
                     }
-                }
-                Button(action: {
-                    // Expand week
-                }) {
-                    HStack {
-                        Text("VER MI SEMANA")
-                            .italic().bold()
-                    }
-                    .frame(width: 300, height: 40)
-                    .cornerRadius(24) // doesnt work 
-                    .foregroundColor(.white)
-                    .background(Color(K.Colors.gray17))
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 10)
-                }
-            }
-        }
+//                    Spacer()
+//                }
+            }.padding(.vertical)
+            .background(Color(K.Colors.gray19))
+            .cornerRadius(16)
+            .padding(16)
+        }.padding([.leading, .trailing], expanded ? 0 : 32)
     }
 }
 
@@ -49,10 +74,6 @@ struct dayOfTheWeek: Identifiable {
     let id = UUID()
     let name: String
     let shortName: String
+    let dayNumber: Int
 }
 
-struct WeekView_Previews: PreviewProvider {
-    static var previews: some View {
-        WeekView()
-    }
-}

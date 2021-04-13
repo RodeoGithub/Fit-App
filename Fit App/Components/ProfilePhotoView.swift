@@ -1,9 +1,4 @@
-//
 //  ProfilePhotoView.swift
-//  Fit App
-//
-//  Created by Rodrigo Maidana on 27/03/2021.
-//
 
 import SwiftUI
 

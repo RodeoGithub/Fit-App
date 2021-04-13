@@ -1,9 +1,4 @@
-//
 //  LocationManager.swift
-//  Fit App
-//
-//  Created by Rodrigo Maidana on 25/03/2021.
-//
 
 import Foundation
 import CoreLocation

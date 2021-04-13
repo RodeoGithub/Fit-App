@@ -1,9 +1,4 @@
-//
 //  GymCellView.swift
-//  Fit App
-//
-//  Created by Rodrigo Maidana on 07/04/2021.
-//
 
 import SwiftUI
 
@@ -48,7 +43,9 @@ struct GymCellView: View {
                     }
                 }
             }
-        }.onAppear(perform: setStatus)
+        }.cornerRadius(12)
+        .shadow(radius: 5)
+        .onAppear(perform: setStatus)
     }
     
     func setStatus() {
@@ -97,6 +94,25 @@ struct GymProximityView: View {
         }
         else {
             self.unit = "m"
+        }
+    }
+}
+
+struct GymPlaceView: View {
+    
+    let place: String
+    let type: ActivityType
+    
+    init(at place: String, ofType type: ActivityType){
+        self.place = place
+        self.type = type
+    }
+    var body: some View {
+        HStack {
+            Image(systemName: "checkmark.circle")
+            Text(place)
+                .foregroundColor(.black)
+                .font(.footnote)
         }
     }
 }

@@ -1,9 +1,4 @@
-//
 //  HostNavigationView.swift
-//  Fit App
-//
-//  Created by Rodrigo Maidana on 06/04/2021.
-//
 
 import SwiftUI
 
@@ -12,11 +7,12 @@ struct HostNavigationView: View {
     @State var isLoggedIn: Bool = false
     @StateObject var env = AppEnviromentData()
     var body: some View {
-        
         switch viewRouter.currentView {
         case .Home:
             HomeView(viewRouter: viewRouter)
                 .environmentObject(env)
+        case .WeekDetail:
+            WeekDetailView(viewRouter: viewRouter)
         case .Main:
             MainView(viewRouter: viewRouter)
         case .Login:

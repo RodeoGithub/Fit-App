@@ -1,9 +1,4 @@
-//
 //  HomeView.swift
-//  Fit App
-//
-//  Created by Rodrigo Maidana on 23/03/2021.
-//
 
 import SwiftUI
 import CoreLocation
@@ -12,7 +7,6 @@ import MapboxSearch
 
 struct HomeView: View {
     @EnvironmentObject var env: AppEnviromentData
-    
     @ObservedObject private var locationManager = LocationManager()
     @State private var isInitialized = true
     @State private var annotations: [MGLPointAnnotation] = [
@@ -52,54 +46,56 @@ struct HomeView: View {
                                         .padding()
                                 }
                             }.frame(width: geometry.size.width, height: 200, alignment: .center)
-                            WeekView()
+                            WeekView(viewRouter: viewRouter, withDetail: false)
                                 .offset(y: -60)
                         }
                     }
                 }
-                Spacer()
-                HStack{
-                    Spacer()
-                    VStack {
-                        Button(action:{
-                            withAnimation{
-                                isGymListPresented.toggle()
-                            }
-                        }) {
-                            Image(systemName: "list.bullet")
-                                .frame(width: 50, height: 50, alignment: .center)
-                                .foregroundColor(.white)
-                        }
-                        .frame(width: 60, height: 60)
-                        .background(K.Colors.defaultGradient)
-                        .cornerRadius(35)
-                        .padding()
-                        .shadow(color: Color.black.opacity(0.3),
-                                radius: 3,
-                                x: 3,
-                                y: 3)
-                        
-                        Button(action:{
-                            map.refreshMapCenter()
-                        }) {
-                            Image(systemName: "location")
-                                .frame(width: 50, height: 50, alignment: .center)
-                                .foregroundColor(.white)
-                        }
-                        .frame(width: 60, height: 60)
-                        .background(K.Colors.defaultGradient)
-                        .cornerRadius(35)
-                        .padding()
-                        .shadow(color: Color.black.opacity(0.3),
-                                radius: 3,
-                                x: 3,
-                                y: 3)
-                    }
-                }
+                
+//                Spacer()
+//                HStack{
+//                    Spacer()
+//                    VStack {
+//                        Button(action:{
+//                            withAnimation{
+//                                isGymListPresented.toggle()
+//                            }
+//                        }) {
+//                            Image(systemName: "list.bullet")
+//                                .frame(width: 50, height: 50, alignment: .center)
+//                                .foregroundColor(.white)
+//                        }
+//                        .frame(width: 60, height: 60)
+//                        .background(K.Colors.defaultGradient)
+//                        .cornerRadius(35)
+//                        .padding()
+//                        .shadow(color: Color.black.opacity(0.3),
+//                                radius: 3,
+//                                x: 3,
+//                                y: 3)
+//
+//                        Button(action:{
+//                            map.refreshMapCenter()
+//                        }) {
+//                            Image(systemName: "location")
+//                                .frame(width: 50, height: 50, alignment: .center)
+//                                .foregroundColor(.white)
+//                        }
+//                        .frame(width: 60, height: 60)
+//                        .background(K.Colors.defaultGradient)
+//                        .cornerRadius(35)
+//                        .padding()
+//                        .shadow(color: Color.black.opacity(0.3),
+//                                radius: 3,
+//                                x: 3,
+//                                y: 3)
+//                    }
+//                }
             }
+            //WeekDetailView()
+                //.opacity(self.weekIsExpanded ? 1: 0.0)
         }.ignoresSafeArea(edges: .vertical)
         .onAppear(perform: startUpdatingLocation)
-        
         .sheet(isPresented: $isGymListPresented) {
             GymListView()
         }

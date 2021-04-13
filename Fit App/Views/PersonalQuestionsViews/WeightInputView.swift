@@ -1,9 +1,4 @@
-//
 //  WeightInputView.swift
-//  Fit App
-//
-//  Created by Rodrigo Maidana on 18/03/2021.
-//
 
 import SwiftUI
 import Combine

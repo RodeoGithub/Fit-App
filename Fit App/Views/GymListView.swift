@@ -1,9 +1,4 @@
-//
 //  GymListView.swift
-//  Fit App
-//
-//  Created by Rodrigo Maidana on 07/04/2021.
-//
 
 import SwiftUI
 

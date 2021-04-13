@@ -60,11 +60,12 @@ struct K {
         }
     }
     
-    static let daysOfTheWeek = [dayOfTheWeek(name: "Domingo", shortName: "Dom."),
-                                dayOfTheWeek(name: "Lunes", shortName: "Lun."),
-                                dayOfTheWeek(name: "Martes", shortName: "Mar."),
-                                dayOfTheWeek(name: "Miércoles", shortName: "Mié."),
-                                dayOfTheWeek(name: "Jueves", shortName: "Jue."),
-                                dayOfTheWeek(name: "Viernes", shortName: "Vie."),
-                                dayOfTheWeek(name: "Sábado", shortName: "Sáb.")]
+    static let daysOfTheWeek = [dayOfTheWeek(name: "Domingo", shortName: "Dom.",
+                                    dayNumber: 1),
+                                dayOfTheWeek(name: "Lunes", shortName: "Lun.", dayNumber: 2),
+                                dayOfTheWeek(name: "Martes", shortName: "Mar.", dayNumber: 3),
+                                dayOfTheWeek(name: "Miércoles", shortName: "Mié.", dayNumber: 4),
+                                dayOfTheWeek(name: "Jueves", shortName: "Jue.", dayNumber: 5),
+                                dayOfTheWeek(name: "Viernes", shortName: "Vie.", dayNumber: 6),
+                                dayOfTheWeek(name: "Sábado", shortName: "Sáb.", dayNumber: 7)]
 }

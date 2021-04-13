@@ -22,6 +22,13 @@
 		E6D9578F261E2BA50084A9DE /* GymCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D9578E261E2BA50084A9DE /* GymCellView.swift */; };
 		E6D95792261E48F20084A9DE /* Gym.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D95791261E48F20084A9DE /* Gym.swift */; };
 		E6D95795261E4D660084A9DE /* GymListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D95794261E4D660084A9DE /* GymListView.swift */; };
+		E6D9579926249B300084A9DE /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D9579826249B300084A9DE /* DateExtensions.swift */; };
+		E6D9579C26249D7C0084A9DE /* WeekDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D9579B26249D7C0084A9DE /* WeekDetailView.swift */; };
+		E6D9579F2624A6710084A9DE /* WeekDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D9579E2624A6710084A9DE /* WeekDetailCell.swift */; };
+		E6D957A42624F47B0084A9DE /* VerticalLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D957A32624F47B0084A9DE /* VerticalLabelStyle.swift */; };
+		E6D957A72625EB350084A9DE /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D957A62625EB350084A9DE /* Week.swift */; };
+		E6D957AA2625EE800084A9DE /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D957A92625EE800084A9DE /* Activity.swift */; };
+		E6D957AD2625F88E0084A9DE /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D957AC2625F88E0084A9DE /* Day.swift */; };
 		E6DAEA7725FBEB2400A3CED7 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAEA7625FBEB2300A3CED7 /* RoundedButton.swift */; };
 		E6DAEA7D25FEA10800A3CED7 /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAEA7C25FEA10800A3CED7 /* LargeButton.swift */; };
 		E6DAEA84260189D000A3CED7 /* NavigationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAEA83260189CF00A3CED7 /* NavigationConfigurator.swift */; };
@@ -39,6 +46,7 @@
 		E6EEEE0F260B986000AE480D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EEEE0E260B986000AE480D /* MapView.swift */; };
 		E6EEEE12260D317200AE480D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EEEE11260D317200AE480D /* LocationManager.swift */; };
 		E6EEEE15260FD8A000AE480D /* ProfilePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EEEE14260FD8A000AE480D /* ProfilePhotoView.swift */; };
+		E6FE44AE26265F7700FF093C /* GymDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE44AD26265F7700FF093C /* GymDetailView.swift */; };
 		F2AAA577ADEEF5EE53FC3CD5 /* Pods_Fit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A222BE1E2D293675603E3C /* Pods_Fit_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +71,13 @@
 		E6D9578E261E2BA50084A9DE /* GymCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymCellView.swift; sourceTree = "<group>"; };
 		E6D95791261E48F20084A9DE /* Gym.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gym.swift; sourceTree = "<group>"; };
 		E6D95794261E4D660084A9DE /* GymListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymListView.swift; sourceTree = "<group>"; };
+		E6D9579826249B300084A9DE /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		E6D9579B26249D7C0084A9DE /* WeekDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDetailView.swift; sourceTree = "<group>"; };
+		E6D9579E2624A6710084A9DE /* WeekDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDetailCell.swift; sourceTree = "<group>"; };
+		E6D957A32624F47B0084A9DE /* VerticalLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLabelStyle.swift; sourceTree = "<group>"; };
+		E6D957A62625EB350084A9DE /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
+		E6D957A92625EE800084A9DE /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		E6D957AC2625F88E0084A9DE /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		E6DAEA7625FBEB2300A3CED7 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		E6DAEA7C25FEA10800A3CED7 /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
 		E6DAEA83260189CF00A3CED7 /* NavigationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationConfigurator.swift; sourceTree = "<group>"; };
@@ -80,6 +95,7 @@
 		E6EEEE0E260B986000AE480D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E6EEEE11260D317200AE480D /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = "Fit App/LocationManager.swift"; sourceTree = SOURCE_ROOT; };
 		E6EEEE14260FD8A000AE480D /* ProfilePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoView.swift; sourceTree = "<group>"; };
+		E6FE44AD26265F7700FF093C /* GymDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,8 +179,10 @@
 				E6DAEA8C26029D2F00A3CED7 /* PersonalQuestionsViews */,
 				E6DAEAA32605365C00A3CED7 /* HowItWorksView.swift */,
 				E6EEEE0B260B97F000AE480D /* HomeView.swift */,
+				E6D9579B26249D7C0084A9DE /* WeekDetailView.swift */,
 				E6EEEE0E260B986000AE480D /* MapView.swift */,
 				E6D95794261E4D660084A9DE /* GymListView.swift */,
+				E6FE44AD26265F7700FF093C /* GymDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -176,8 +194,9 @@
 				E6DAEA7C25FEA10800A3CED7 /* LargeButton.swift */,
 				E6DAEAA02605292200A3CED7 /* WeightUnitToggleStyle.swift */,
 				E6EEEE14260FD8A000AE480D /* ProfilePhotoView.swift */,
-				E61DC11C26124A9100747690 /* WeekView.swift */,
 				E6D9578E261E2BA50084A9DE /* GymCellView.swift */,
+				E61DC11C26124A9100747690 /* WeekView.swift */,
+				E6D9579E2624A6710084A9DE /* WeekDetailCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -189,6 +208,9 @@
 				E6DAEA992604090C00A3CED7 /* AppEnvironmentData.swift */,
 				E68501EC26055C8F008C87BC /* User.swift */,
 				E6D95791261E48F20084A9DE /* Gym.swift */,
+				E6D957A62625EB350084A9DE /* Week.swift */,
+				E6D957AC2625F88E0084A9DE /* Day.swift */,
+				E6D957A92625EE800084A9DE /* Activity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -197,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				E6DAEA892601A27900A3CED7 /* ViewExtensions.swift */,
+				E6D9579826249B300084A9DE /* DateExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -208,6 +231,7 @@
 				E6DAEA862601A08D00A3CED7 /* NavigationBarModifier.swift */,
 				E687D6D3260902D700E6BE94 /* PlaceholderStyle.swift */,
 				E6CEE70D261BB4CB00F8F9E1 /* ViewRouter.swift */,
+				E6D957A32624F47B0084A9DE /* VerticalLabelStyle.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -340,12 +364,20 @@
 			files = (
 				E6DAEA8A2601A27900A3CED7 /* ViewExtensions.swift in Sources */,
 				E6EEEE0F260B986000AE480D /* MapView.swift in Sources */,
+				E6D957A72625EB350084A9DE /* Week.swift in Sources */,
 				E6EEEE12260D317200AE480D /* LocationManager.swift in Sources */,
+				E6D9579926249B300084A9DE /* DateExtensions.swift in Sources */,
+				E6D9579F2624A6710084A9DE /* WeekDetailCell.swift in Sources */,
+				E6D957AA2625EE800084A9DE /* Activity.swift in Sources */,
 				E687D6D4260902D700E6BE94 /* PlaceholderStyle.swift in Sources */,
 				E65D704D261C0829006762F2 /* HostNavigationView.swift in Sources */,
 				E687D6D12608FFEC00E6BE94 /* HeightInputView.swift in Sources */,
+				E6D957A42624F47B0084A9DE /* VerticalLabelStyle.swift in Sources */,
+				E6D957AD2625F88E0084A9DE /* Day.swift in Sources */,
 				E6DAEA872601A08D00A3CED7 /* NavigationBarModifier.swift in Sources */,
+				E6FE44AE26265F7700FF093C /* GymDetailView.swift in Sources */,
 				E6090D4C25FA9103000FB887 /* LoginView.swift in Sources */,
+				E6D9579C26249D7C0084A9DE /* WeekDetailView.swift in Sources */,
 				E6DAEA9A2604090C00A3CED7 /* AppEnvironmentData.swift in Sources */,
 				E6DAEA9E260417EA00A3CED7 /* FrecuencySelectionView.swift in Sources */,
 				E6D95795261E4D660084A9DE /* GymListView.swift in Sources */,
