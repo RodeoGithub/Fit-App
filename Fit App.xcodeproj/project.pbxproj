@@ -47,6 +47,8 @@
 		E6EEEE12260D317200AE480D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EEEE11260D317200AE480D /* LocationManager.swift */; };
 		E6EEEE15260FD8A000AE480D /* ProfilePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EEEE14260FD8A000AE480D /* ProfilePhotoView.swift */; };
 		E6FE44AE26265F7700FF093C /* GymDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE44AD26265F7700FF093C /* GymDetailView.swift */; };
+		E6FE44B12627B67500FF093C /* GymImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE44B02627B67500FF093C /* GymImage.swift */; };
+		E6FE44B42628CC3200FF093C /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE44B32628CC3200FF093C /* Shift.swift */; };
 		F2AAA577ADEEF5EE53FC3CD5 /* Pods_Fit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A222BE1E2D293675603E3C /* Pods_Fit_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +98,8 @@
 		E6EEEE11260D317200AE480D /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = "Fit App/LocationManager.swift"; sourceTree = SOURCE_ROOT; };
 		E6EEEE14260FD8A000AE480D /* ProfilePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoView.swift; sourceTree = "<group>"; };
 		E6FE44AD26265F7700FF093C /* GymDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymDetailView.swift; sourceTree = "<group>"; };
+		E6FE44B02627B67500FF093C /* GymImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymImage.swift; sourceTree = "<group>"; };
+		E6FE44B32628CC3200FF093C /* Shift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +215,8 @@
 				E6D957A62625EB350084A9DE /* Week.swift */,
 				E6D957AC2625F88E0084A9DE /* Day.swift */,
 				E6D957A92625EE800084A9DE /* Activity.swift */,
+				E6FE44B02627B67500FF093C /* GymImage.swift */,
+				E6FE44B32628CC3200FF093C /* Shift.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -366,6 +372,7 @@
 				E6EEEE0F260B986000AE480D /* MapView.swift in Sources */,
 				E6D957A72625EB350084A9DE /* Week.swift in Sources */,
 				E6EEEE12260D317200AE480D /* LocationManager.swift in Sources */,
+				E6FE44B42628CC3200FF093C /* Shift.swift in Sources */,
 				E6D9579926249B300084A9DE /* DateExtensions.swift in Sources */,
 				E6D9579F2624A6710084A9DE /* WeekDetailCell.swift in Sources */,
 				E6D957AA2625EE800084A9DE /* Activity.swift in Sources */,
@@ -389,6 +396,7 @@
 				E6DAEAA42605365C00A3CED7 /* HowItWorksView.swift in Sources */,
 				E6DAEA7D25FEA10800A3CED7 /* LargeButton.swift in Sources */,
 				E6CEE70E261BB4CB00F8F9E1 /* ViewRouter.swift in Sources */,
+				E6FE44B12627B67500FF093C /* GymImage.swift in Sources */,
 				E61DC11D26124A9100747690 /* WeekView.swift in Sources */,
 				E6DAEA8E26029D6800A3CED7 /* GenderSelectionView.swift in Sources */,
 				E6DAEA9126029EEF00A3CED7 /* MotivationSelectionView.swift in Sources */,

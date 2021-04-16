@@ -27,24 +27,29 @@ struct GymCellView: View {
                         .font(.subheadline)
                     Spacer()
                     GymWorkTimeView(openTime: gym.openTime, closeTime: gym.closeTime)
+                        .padding(.vertical,8)
                     HStack {
                         GymProximityView(proximity: gym.proximity)
+                            .foregroundColor(.black)
                         Spacer()
                         if condition {
                             Text("ABIERTO")
                                 .font(.footnote)
+                                .fontWeight(.semibold)
                                 .foregroundColor(.green)
                         }
                         else {
                             Text("CERRADO")
                                 .font(.footnote)
+                                .fontWeight(.semibold)
                                 .foregroundColor(.red)
                         }
                     }
                 }
-            }
-        }.cornerRadius(12)
-        .shadow(radius: 5)
+            }.padding([.trailing,.vertical])
+        }
+        .cornerRadius(12)
+        .shadow(radius: 10)
         .onAppear(perform: setStatus)
     }
     
@@ -74,17 +79,21 @@ struct GymProximityView: View {
     
     var body: some View {
         HStack {
-            Image(systemName: "location")
+            //Image(systemName: "location")
             
             if proximity >= 1000 {
-                Text("\(String(round(10*((Float(proximity)/1000)))/10)) \(unit)")
-                    .foregroundColor(.black)
+                Label("\(String(round(10*((Float(proximity)/1000)))/10)) \(unit)", systemImage: "location")
                     .font(.footnote)
+//                Text("\(String(round(10*((Float(proximity)/1000)))/10)) \(unit)")
+//                    .foregroundColor(.black)
+//                    .font(.footnote)
             }
             else {
-                Text("\(String(proximity)) \(unit)")
-                    .foregroundColor(.black)
+                Label("\(String(proximity)) \(unit)", systemImage: "location")
                     .font(.footnote)
+//                Text("\(String(proximity)) \(unit)")
+//                    .foregroundColor(.black)
+//                    .font(.footnote)
             }
         }.onAppear(perform: updateUnit)
     }
@@ -95,6 +104,10 @@ struct GymProximityView: View {
         else {
             self.unit = "m"
         }
+    }
+    
+    func foregroundColor(_ color: Color) -> some View {
+        return body.foregroundColor(color)
     }
 }
 

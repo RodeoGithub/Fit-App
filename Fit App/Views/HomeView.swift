@@ -8,6 +8,9 @@ import MapboxSearch
 struct HomeView: View {
     @EnvironmentObject var env: AppEnviromentData
     @ObservedObject private var locationManager = LocationManager()
+    
+    @State private var isFirstUpdate = true
+    
     @State private var isInitialized = true
     @State private var annotations: [MGLPointAnnotation] = [
         MGLPointAnnotation(title: "Gym1", coordinate: .init(latitude: -27.4495, longitude: -59.0205)),
@@ -15,9 +18,8 @@ struct HomeView: View {
     
     @StateObject var viewRouter: ViewRouter
     
-    @State var isGymListPresented = false
+    @State private var isGymListPresented = false
     private let defaultLocation = CLLocationCoordinate2D(latitude: -34.6083, longitude: -58.3712) // Ciudad de Buenos Aires
-    let engine = SearchEngine()
     
     var body: some View {
         let map = MapView(annotations: $annotations)
@@ -27,7 +29,7 @@ struct HomeView: View {
                 map
                     .userTrackingMode(.follow)
                     .zoomLevel(15)
-                    .centerCoordinate(defaultLocation)
+                    .centerCoordinate(locationManager.lastKnownLocation?.coordinate ?? defaultLocation)
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
             }
             VStack {
@@ -42,62 +44,66 @@ struct HomeView: View {
                                         .frame(width: 149, height: 72)
                                         .padding()
                                     Spacer()
-                                    ProfilePhotoView(imageName: "logo", points: 4)
+                                    ProfilePhotoView(imageName: "profile-photo", points: 4)
                                         .padding()
                                 }
                             }.frame(width: geometry.size.width, height: 200, alignment: .center)
                             WeekView(viewRouter: viewRouter, withDetail: false)
                                 .offset(y: -60)
+                                .shadow(radius: 10)
                         }
                     }
                 }
-                
-//                Spacer()
-//                HStack{
-//                    Spacer()
-//                    VStack {
-//                        Button(action:{
-//                            withAnimation{
-//                                isGymListPresented.toggle()
-//                            }
-//                        }) {
-//                            Image(systemName: "list.bullet")
-//                                .frame(width: 50, height: 50, alignment: .center)
-//                                .foregroundColor(.white)
-//                        }
-//                        .frame(width: 60, height: 60)
-//                        .background(K.Colors.defaultGradient)
-//                        .cornerRadius(35)
-//                        .padding()
-//                        .shadow(color: Color.black.opacity(0.3),
-//                                radius: 3,
-//                                x: 3,
-//                                y: 3)
-//
-//                        Button(action:{
-//                            map.refreshMapCenter()
-//                        }) {
-//                            Image(systemName: "location")
-//                                .frame(width: 50, height: 50, alignment: .center)
-//                                .foregroundColor(.white)
-//                        }
-//                        .frame(width: 60, height: 60)
-//                        .background(K.Colors.defaultGradient)
-//                        .cornerRadius(35)
-//                        .padding()
-//                        .shadow(color: Color.black.opacity(0.3),
-//                                radius: 3,
-//                                x: 3,
-//                                y: 3)
-//                    }
-//                }
+                HStack{
+                    Spacer()
+                    VStack {
+                        Button(action:{
+                            withAnimation{
+                                isGymListPresented.toggle()
+                            }
+                        }) {
+                            Image(systemName: "list.bullet")
+                                .frame(width: 50, height: 50, alignment: .center)
+                                .foregroundColor(.white)
+                        }
+                        .frame(width: 60, height: 60)
+                        .background(K.Colors.defaultGradient)
+                        .cornerRadius(35)
+                        .padding(.horizontal)
+                        .shadow(color: Color.black.opacity(0.3),
+                                radius: 3,
+                                x: 3,
+                                y: 3)
+
+                        Button(action:{
+                            map.refreshMapCenter()
+                        }) {
+                            Image(systemName: "location")
+                                .frame(width: 50, height: 50, alignment: .center)
+                                .foregroundColor(.white)
+                        }
+                        .frame(width: 60, height: 60)
+                        .background(K.Colors.defaultGradient)
+                        .cornerRadius(35)
+                        .padding(.horizontal)
+                        .shadow(color: Color.black.opacity(0.3),
+                                radius: 3,
+                                x: 3,
+                                y: 3)
+                    }
+                }
+                Spacer()
             }
-            //WeekDetailView()
-                //.opacity(self.weekIsExpanded ? 1: 0.0)
         }.ignoresSafeArea(edges: .vertical)
         .onAppear(perform: startUpdatingLocation)
         .sheet(isPresented: $isGymListPresented) {
             GymListView()
+        }
+        .onReceive(locationManager.didChange) { v in
+            if isFirstUpdate {
+                map.refreshMapCenter()
+                self.isFirstUpdate = false
+            }
         }
     }
     

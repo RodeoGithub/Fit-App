@@ -4,11 +4,17 @@ import SwiftUI
 
 struct GymListView: View {
     var body: some View {
-        List {
-            ForEach(gymTestList) { gym in
-                GymCellView(gym: gym)
-                    .padding()
-            }
+        NavigationView {
+            List {
+                ForEach(gymTestList) { gym in
+                    ZStack {
+                        GymCellView(gym: gym)
+                        NavigationLink(destination: GymDetailView(gym: gym)) {
+                            EmptyView()
+                        }.hidden()
+                    }
+                }
+            }.navigationBarHidden(true)
         }
     }
 }
