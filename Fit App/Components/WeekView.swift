@@ -70,7 +70,7 @@ struct WeekView: View {
     }
 }
 
-struct dayOfTheWeek: Identifiable {
+struct DayOfTheWeek: Identifiable {
     let id = UUID()
     let name: String
     let shortName: String

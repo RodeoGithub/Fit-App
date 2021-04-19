@@ -148,8 +148,6 @@ let testGymShift = [Shift(place: "Sala de pesas", type: .Gym, startTime: "9:00",
                     Shift(place: "Sala de pesas",type: .Gym, startTime: "13:00", endTime: "14:00", maxCapacity: 50),
                     Shift(place: "Sala de pesas",type: .Gym, startTime: "14:00", endTime: "15:00", maxCapacity: 50),
                     Shift(place: "Sala de pesas",type: .Gym, startTime: "15:00", endTime: "16:00", maxCapacity: 50),
-                    Shift(place: "Sala de pesas",type: .Gym, startTime: "16:00", endTime: "17:00", maxCapacity: 50),
-                    Shift(place: "Sala de pesas",type: .Gym, startTime: "18:00", endTime: "19:00", maxCapacity: 50)
 ]
 
 let testLessonShift = [Shift(place: "Sala",type: .Lesson, startTime: "9:00", endTime: "10:00", maxCapacity: 50),

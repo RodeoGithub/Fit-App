@@ -29,39 +29,47 @@ struct RoundedButton: View {
         if let bc = backgroundColor {
             return AnyView(
                 Button(action: function) {
-                    Text(text)
-                        .bold()
-                        .frame(width: 326, height: 60, alignment: .center)
-                        .background(bc)
-                        .foregroundColor(foregroundColor)
-                        .cornerRadius(30)
-                        .shadow(radius: 10)
+                    HStack {
+                        Text(text)
+                            .bold()
+                            .foregroundColor(foregroundColor)
+                            .padding(.vertical)
+                    }.background(bc)
+                    .cornerRadius(30)
+                    .shadow(radius: 10)
                 }
             )
         }
         else if let bg = backgroundGradient {
             return AnyView(
                 Button(action: function) {
-                    Text(text)
-                        .bold()
-                        .frame(width: 326, height: 60, alignment: .center)
-                        .background(bg)
-                        .foregroundColor(foregroundColor)
-                        .cornerRadius(30)
-                        .shadow(radius: 10)
+                    HStack {
+                        Spacer()
+                        Text(text)
+                            .bold()
+                            .foregroundColor(foregroundColor)
+                            .padding(.vertical)
+                        Spacer()
+                    }
+                    .background(bg)
+                    .cornerRadius(30)
+                    .shadow(radius: 10)
                 }
             )
         }
         else {
             return AnyView(
                 Button(action: function) {
+                    HStack {
+                        Spacer()
                         Text(text)
                             .bold()
-                            .frame(width: 326, height: 60, alignment: .center)
                             .background(Color.white)
                             .foregroundColor(.gray)
-                            .cornerRadius(30)
-                            .shadow(radius: 10)
+                            .padding(.vertical)
+                        Spacer()
+                    }.cornerRadius(30)
+                    .shadow(radius: 10)
                 }
             )
         }
@@ -70,6 +78,6 @@ struct RoundedButton: View {
 
 struct RoundedButton_Previews: PreviewProvider {
     static var previews: some View {
-        RoundedButton(text: "Preview", backgroundColor: .white, foregroundColor: .white) {}
+        RoundedButton(text: "Preview", backgroundColor: .white, foregroundColor: .black) {}
     }
 }

@@ -54,45 +54,46 @@ struct HomeView: View {
                         }
                     }
                 }
-                HStack{
-                    Spacer()
-                    VStack {
-                        Button(action:{
-                            withAnimation{
-                                isGymListPresented.toggle()
+                
+                VStack {
+                    HStack{
+                        Spacer()
+                        VStack {
+                            Button(action:{
+                                withAnimation{
+                                    isGymListPresented.toggle()
+                                }
+                            }) {
+                                Image(systemName: "list.bullet")
+                                    .foregroundColor(.white)
                             }
-                        }) {
-                            Image(systemName: "list.bullet")
-                                .frame(width: 50, height: 50, alignment: .center)
-                                .foregroundColor(.white)
-                        }
-                        .frame(width: 60, height: 60)
-                        .background(K.Colors.defaultGradient)
-                        .cornerRadius(35)
-                        .padding(.horizontal)
+                            .frame(width: 30, height: 30)
+                            
+                            Button(action:{
+                                map.refreshMapCenter()
+                            }) {
+                                Image(systemName: "location")
+                                    .foregroundColor(.white)
+                            }
+                            .frame(width: 30, height: 30)
+                            .shadow(color: Color.black.opacity(0.3),
+                                    radius: 3,
+                                    x: 3,
+                                    y: 3)
+                            
+                        }.padding(8)
+                        .background(Color(K.Colors.gray19))
                         .shadow(color: Color.black.opacity(0.3),
                                 radius: 3,
                                 x: 3,
                                 y: 3)
-
-                        Button(action:{
-                            map.refreshMapCenter()
-                        }) {
-                            Image(systemName: "location")
-                                .frame(width: 50, height: 50, alignment: .center)
-                                .foregroundColor(.white)
-                        }
-                        .frame(width: 60, height: 60)
-                        .background(K.Colors.defaultGradient)
-                        .cornerRadius(35)
-                        .padding(.horizontal)
-                        .shadow(color: Color.black.opacity(0.3),
-                                radius: 3,
-                                x: 3,
-                                y: 3)
-                    }
+                        .cornerRadius(12)
+                        .offset(y:-80)
+                    }.padding()
+                    
+                    Spacer()
+                    
                 }
-                Spacer()
             }
         }.ignoresSafeArea(edges: .vertical)
         .onAppear(perform: startUpdatingLocation)

@@ -48,7 +48,9 @@ struct WeightInputView: View {
                 HStack {
                     if unit { //Kg Selected
                         Button (action: {
-                            self.unit = true
+                            withAnimation {
+                                self.unit = true
+                            }
                         }) {
                             Text("Kg")
                                 .frame(width: 60, height: 40)
@@ -57,15 +59,17 @@ struct WeightInputView: View {
                                 .cornerRadius(20)
                                 .shadow(radius: 10)
                         }
-                        .padding()
+                        .padding(12)
                         Button(action: {
-                            self.unit = false
+                            withAnimation {
+                                self.unit = false
+                            }
                         }) {
                             Text("Lb")
                                 .frame(width: 60, height: 40)
                                 .foregroundColor(.gray)
                         }
-                        .padding()
+                        .padding(12)
                     }
                     else {
                         Button(action: {
@@ -89,6 +93,7 @@ struct WeightInputView: View {
                         .padding()
                     }
                 }
+                Spacer()
                 HStack {
                     Spacer()
                     TextField("Peso",text: $weight)

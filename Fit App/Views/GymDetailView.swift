@@ -17,15 +17,14 @@ struct GymDetailView: View {
     
     var body: some View {
         ZStack(alignment: .top){
-            //Color.red
             ScrollView {
                 VStack {
                     GymImageScroll(gym: gym, imageSelected: $imageSelected)
                         .frame(width: screenWidth, height: 300)
                     GymWorkTimeView(openTime: gym.openTime, closeTime: gym.closeTime)
-                        .font(.title2)
+                        .font(.title)
                         .foregroundColor(.black)
-                        .padding()
+                        .padding(12)
                     if let activities = gym.activities {
                         if activities.contains(.Gym) {
                             ShiftListView(type: .Gym, $gymShift)
@@ -126,16 +125,63 @@ struct ShiftListView: View {
                 .bold()
                 .italic()
                 .foregroundColor(.white)
-                .padding()
+                .padding(12)
             RoundedRectangle(cornerRadius: 5)
                 .foregroundColor(color)
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 6, maxHeight: 6, alignment: .center)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 6, idealHeight: 6, maxHeight: 6, alignment: .center)
                 .padding(.horizontal, 16)
-            
+                .padding(.vertical, 2)
             
             HStack {
                 ForEach (K.daysOfTheWeek) { day in
-                    if Date().dayNumberOfTheWeek() == day.dayNumber {
+                    ZStack {
+                        if selectedDay == day.dayNumber {
+                            Circle().fill(K.Colors.defaultGradient)
+                        }
+                        if Date().dayNumberOfTheWeek() == day.dayNumber { // Is today
+                            Button(action: {
+                                withAnimation {
+                                    selectedDay = day.dayNumber
+                                }
+                            }, label: {
+                                if selectedDay == day.dayNumber {
+                                    Text(day.shortName)
+                                        .font(.system(size:20))
+                                        .minimumScaleFactor(0.001)
+                                        .foregroundColor(.white)
+                                }
+                                else {
+                                    Text(day.shortName)
+                                        .font(.system(size: 16))
+                                        .minimumScaleFactor(0.001)
+                                        .foregroundColor(.orange)
+                                }
+                            })
+                        }
+                        
+                        else { // Is not today
+                            Button(action: {
+                                withAnimation {
+                                    selectedDay = day.dayNumber
+                                }
+                            }, label: {
+                                if selectedDay == day.dayNumber {
+                                    Text(day.shortName)
+                                        .font(.system(size:20))
+                                        .minimumScaleFactor(0.001)
+                                        .foregroundColor(.white)
+                                }
+                                else {
+                                    Text(day.shortName)
+                                        .font(.system(size: 16))
+                                        .minimumScaleFactor(0.001)
+                                        .foregroundColor(.white)
+                                }
+                            })
+                        }
+                    }
+                    /*
+                    
                         Button(action: {
                             withAnimation {
                                 selectedDay = day.dayNumber
@@ -143,17 +189,20 @@ struct ShiftListView: View {
                         }, label: {
                             if selectedDay == day.dayNumber {
                                 Text(day.shortName)
+                                    .font(.system(size:20))
+                                    .minimumScaleFactor(0.0001)
                                     .foregroundColor(.white)
-                                    .padding(8)
                                     .background(K.Colors.defaultGradient)
-                                    .clipShape(Circle())
+                                    .cornerRadius(24)
                             }
                             else {
                                 Text(day.shortName)
-                                    .padding(8)
+                                    .font(.system(size: 20))
+                                    .minimumScaleFactor(0.0001)
                                     .foregroundColor(.orange)
+                                
                             }
-                        })
+                        }).padding(4)
                     }
                     else {
                         Button(action: {
@@ -163,20 +212,25 @@ struct ShiftListView: View {
                         }, label: {
                             if selectedDay == day.dayNumber {
                                 Text(day.shortName)
+                                    .font(.system(size:20))
+                                    .minimumScaleFactor(0.0001)
                                     .foregroundColor(.white)
-                                    .padding(8)
                                     .background(K.Colors.defaultGradient)
-                                    .clipShape(Circle())
+                                    .cornerRadius(24)
                             }
                             else {
                                 Text(day.shortName)
-                                    .padding(8)
+                                    .font(.system(size:20))
+                                    .minimumScaleFactor(0.0001)
                                     .foregroundColor(.white)
+                                
                             }
-                        })
-                    }
+                        }).padding(4)
+                    }*/
                 }
-            }.padding(.horizontal, 12)
+            }.frame(minHeight: 36)
+            .padding(.horizontal, 12)
+            .padding(.vertical,2)
             
             VStack {
                 ForEach(shiftArray) { shift in
@@ -196,23 +250,37 @@ struct ShiftCellView: View {
     let shift: Shift
     @State var isExpanded: Bool = false
     var body: some View {
-        HStack {
-            Spacer()
-            Text(shift.place)
-                .foregroundColor(.white)
-            Spacer()
-            Text("\(shift.startTime) - \(shift.endTime)")
-                .foregroundColor(.white)
-            Label("\(shift.maxCapacity)", systemImage: "person")
-                .foregroundColor(.white)
-                .padding(8)
-                .background(K.Colors.defaultGradient)
-                .cornerRadius(8)
-                .shadow(radius: 5)
-            Spacer()
+        VStack {
+            HStack {
+                Spacer()
+                Text(shift.place)
+                    .foregroundColor(.white)
+                Spacer()
+                Text("\(shift.startTime) - \(shift.endTime)")
+                    .foregroundColor(.white)
+                Spacer()
+                Label("\(shift.maxCapacity)", systemImage: "person")
+                    .foregroundColor(.white)
+                    .padding(8)
+                    .background(K.Colors.defaultGradient)
+                    .cornerRadius(8)
+                    .shadow(radius: 5)
+                Spacer()
+            }
+            
+            if isExpanded {
+                RoundedButton(text: "Reservar", withGradient: K.Colors.defaultGradient, foregroundColor: .white) {
+                    //Reservar
+                }
+            }
         }.padding(8)
         .background(Color(K.Colors.gray27))
         .cornerRadius(16)
+        .onTapGesture {
+            withAnimation {
+                isExpanded.toggle()
+            }
+        }
     }
 }
 

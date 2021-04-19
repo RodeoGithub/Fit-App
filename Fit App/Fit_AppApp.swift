@@ -9,8 +9,7 @@ struct Fit_AppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            GymListView()
-            //HostNavigationView(viewRouter: viewRouter)
+            HostNavigationView(viewRouter: viewRouter)
         }
     }
 }

@@ -74,8 +74,15 @@ struct GymWorkTimeView: View {
 
 struct GymProximityView: View {
     let proximity: Int
-    @State var unit: String = "m"
-    @State var currentUnit = ""
+    //@State var unit: String = "m"
+    var unit: String {
+        if proximity >= 1000 {
+            return "Km"
+        }
+        else {
+            return "m"
+        }
+    }
     
     var body: some View {
         HStack {
@@ -95,14 +102,6 @@ struct GymProximityView: View {
 //                    .foregroundColor(.black)
 //                    .font(.footnote)
             }
-        }.onAppear(perform: updateUnit)
-    }
-    func updateUnit() {
-        if proximity >= 1000 {
-            self.unit = "Km"
-        }
-        else {
-            self.unit = "m"
         }
     }
     
