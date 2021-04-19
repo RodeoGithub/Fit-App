@@ -3,7 +3,7 @@
 import Foundation
 
 class ViewRouter: ObservableObject {
-    @Published var currentView: Navigation = .Home
+    @Published var currentView: Navigation = .Main
 }
 
 enum Navigation {
